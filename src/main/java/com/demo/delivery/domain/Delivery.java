@@ -8,6 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PostPersist;
 
 @Entity
 public class Delivery {
@@ -21,9 +22,21 @@ public class Delivery {
     private Date startDate;
     private Date endDate;
 
+    private Long orderItemId;
+
     @OneToOne
     private DeliveryAddress deliveryAddress;
     
+
+    @PostPersist
+    public void onPostPersist() {
+        DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
+        deliveryCompleted.setId(this.id);
+        deliveryCompleted.setOrderItemId(this.orderItemId);
+        deliveryCompleted.publishAfterCommit();
+    }
+
+
     public DeliveryAddress getDeliveryAddress() {
         return deliveryAddress;
     }
