@@ -26,6 +26,8 @@ public class Delivery {
 
     @OneToOne
     private DeliveryAddress deliveryAddress;
+
+    private String address;
     
 
     @PostPersist
@@ -37,28 +39,66 @@ public class Delivery {
     }
 
 
-    public DeliveryAddress getDeliveryAddress() {
-        return deliveryAddress;
-    }
-    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
     public DeliveryStatus getDeliveryStatus() {
         return deliveryStatus;
     }
+
+
     public void setDeliveryStatus(DeliveryStatus deliveryStatus) {
         this.deliveryStatus = deliveryStatus;
     }
+
+
     public Date getStartDate() {
         return startDate;
     }
+
+
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
+
+
     public Date getEndDate() {
         return endDate;
     }
+
+
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
+
+
+    public Long getOrderItemId() {
+        return orderItemId;
+    }
+
+
+    public void setOrderItemId(Long orderItemId) {
+        this.orderItemId = orderItemId;
+    }
+
+
+    public DeliveryAddress getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    
+    
 }
