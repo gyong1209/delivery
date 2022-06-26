@@ -16,7 +16,6 @@ public class DeliveryAddress {
     private String dtlAddr;
     private String zipcode;
 
-    
     public Long getId() {
         return id;
     }
@@ -54,5 +53,5 @@ public class DeliveryAddress {
         this.zipcode = zipcode;
     }
 
-    
+
 }

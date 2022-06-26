@@ -7,8 +7,6 @@ public class DeliveryCompleted extends AbstractEvent {
     private Long id;
     private Long orderItemId;
 
-
-    
     public Long getId() {
         return id;
     }
@@ -22,7 +20,4 @@ public class DeliveryCompleted extends AbstractEvent {
         this.orderItemId = orderItemId;
     }
 
-    
-
-    
 }

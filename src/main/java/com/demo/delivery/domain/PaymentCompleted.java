@@ -3,9 +3,9 @@ package com.demo.delivery.domain;
 import com.demo.delivery.AbstractEvent;
 
 public class PaymentCompleted extends AbstractEvent {
-    
+
     private Long id;
-    private String address;
+    private Long addressId;
 
     public Long getId() {
         return id;
@@ -13,11 +13,11 @@ public class PaymentCompleted extends AbstractEvent {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getAddress() {
-        return address;
+    public Long getAddressId() {
+        return addressId;
     }
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
     }
 
 
