@@ -13,15 +13,15 @@ import lombok.Setter;
 public class DeliveryAddress {
 
     @Id @GeneratedValue
-    private Long id;
+    private Long id;                // 배송주소ID
 
-    private String recipientName;
-    private String deliveryPlace;
-    private String basAddr;
-    private String dtlAddr;
-    private String extraAddr;
-    private String zipcode;
-    private String rootAddrYn;
+    private String recipientName;   // 받는분
+    private String deliveryPlace;   // 배송지명
+    private String basAddr;         // 도로명(지번)주소
+    private String dtlAddr;         // 상세주소
+    private String extraAddr;       // 참고항목
+    private String zipcode;         // 우편번호
+    private String rootAddrYn;      // 기본배송지여부
 
 
 }

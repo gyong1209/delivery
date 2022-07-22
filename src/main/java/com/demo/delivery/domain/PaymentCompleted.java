@@ -11,5 +11,6 @@ public class PaymentCompleted extends AbstractEvent {
 
     private Long id;
     private Long addressId;
+    private String deliveryMessage;
 
 }
