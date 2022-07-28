@@ -5,10 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PostPersist;
+import javax.persistence.PostUpdate;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,8 @@ import lombok.Setter;
 @Getter @Setter
 public class Delivery {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;                            // 배송ID
 
     @Enumerated(EnumType.STRING)
@@ -37,13 +39,16 @@ public class Delivery {
     private DeliveryAddress deliveryAddress;    // 배송주소
 
 
-    @PostPersist
-    public void onPostPersist() {
-        DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
-        deliveryCompleted.setId(this.id);
-        deliveryCompleted.setMemberId(this.memberId);
-        deliveryCompleted.setOrderItemId(this.orderItemId);
-        deliveryCompleted.publishAfterCommit();
+    @PostUpdate
+    public void onPostUpdate() {
+        if(this.deliveryStatus == DeliveryStatus.COMP) {
+            DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
+            deliveryCompleted.setId(this.id);
+            deliveryCompleted.setMemberId(this.memberId);
+            deliveryCompleted.setOrderItemId(this.orderItemId);
+            deliveryCompleted.setDeliveryStatus(this.deliveryStatus.toString());
+            deliveryCompleted.publishAfterCommit();
+        }
     }
 
 }
