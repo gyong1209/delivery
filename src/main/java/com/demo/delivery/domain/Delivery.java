@@ -29,6 +29,7 @@ public class Delivery {
     private String deliveryStartDt;             // 배송시작일자
     private String deliveryEndDt;               // 배송종료일자
     private String trackingNumber;              // 운송장번호
+    private Long orderId;                       // 주문ID
     private Long orderItemId;                   // 주문상품ID
 
     @Embedded

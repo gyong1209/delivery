@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
 
   List<Delivery> findByMemberId(@Param("memberId") Long memberId);
+
 }

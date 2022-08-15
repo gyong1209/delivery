@@ -14,6 +14,8 @@ import com.demo.delivery.domain.Delivery;
 import com.demo.delivery.domain.DeliveryAddress;
 import com.demo.delivery.domain.DeliveryAddressRepository;
 import com.demo.delivery.domain.DeliveryRepository;
+import com.demo.delivery.domain.DeliveryStatus;
+import com.demo.delivery.domain.PaymentCanceled;
 import com.demo.delivery.domain.PaymentCompleted;
 
 @Service
@@ -44,7 +46,25 @@ public class PolicyHandler {
         delivery.setDeliveryAddress(deliveryAddress);
         delivery.setTrackingNumber(generateTrackingnumber());
         delivery.setCourier(courier);
+        delivery.setMemberId(paymentCompleted.getMemberId());
+        delivery.setDeliveryStatus(DeliveryStatus.READY);
         deliveryRepository.save(delivery);
+    }
+
+    @Transactional
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverPaymentCanceled(@Payload PaymentCanceled paymentCanceled){
+        if(!paymentCanceled.validate())
+            return;
+
+        // 배송상태 확인 - '배송중' 또는 '배송완료' 상태일 경우, '배송진행됨' 이벤트 발행
+        Delivery delivery = deliveryRepository.getOne(paymentCanceled.getOrderId());
+        if(delivery.getDeliveryStatus().equals(DeliveryStatus.SHIPPING) || delivery.getDeliveryStatus().equals(DeliveryStatus.COMP)) {
+            return;
+        }
+
+        // 배송 취소 처리
+        delivery.setDeliveryStatus(DeliveryStatus.CANCEL);
     }
 
     /**

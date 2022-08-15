@@ -17,6 +17,7 @@ public class DeliveryAddress {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;                // 배송주소ID
 
+    private Long memberId;          // 회원ID
     private String recipientName;   // 받는분
     private String deliveryPlace;   // 배송지명
     private String basAddr;         // 도로명(지번)주소
