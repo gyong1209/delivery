@@ -1,16 +1,8 @@
 # 배송(Delivery) MSA
 
-## Base Project 다운로드 및 실행
-먼저, 새로운 브라우저 탭을 열고, base project 를 gitpod 로 접속합니다.
 
-https://gitpod.io/#https://github.com/msa-school/ddd-petstore-level5-layered
 
-GidPod 내에 터미널을 열고(왼쪽 상단의 햄버거 버튼 > Terminal > New Terminal), 프로젝트가 잘 컴파일 되는지 확인합니다:
-```
-mvn spring-boot:run
-```
-
-## 미션
+## Entity
 - JPA를 통한 Database Input/Output Adapter 자동생성
 - Spring Data REST 를 통한 REST API Input/Output Adaptor 자동생성 (코드 비교 하면서 추가)
 - 등록된 강아지를 httpie 로 확인한다:
@@ -19,7 +11,7 @@ http :8080/pets
 ```
 > httpie 가 설치되지 않은 경우: pip install httpie
 
-## 미션2
+## API
 - maria db 를 이용하여 연결:
 - maria db server 를 기동하기 (docker)
 ```
