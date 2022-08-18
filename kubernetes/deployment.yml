@@ -18,5 +18,6 @@ spec:
       containers:
         - name: delivery
           image: 104844728320.dkr.ecr.ap-northeast-2.amazonaws.com/delivery:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 8083
