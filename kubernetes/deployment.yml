@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: delivery
-  namespace: ecomarket
+  # namespace: ecomarket
   labels:
     app: delivery
 spec:
@@ -21,4 +21,3 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8083
-

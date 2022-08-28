@@ -1,16 +1,22 @@
 # 배송(Delivery) MSA
 
+<<<<<<< HEAD
 ## 1. Frontend
 먼저, 새로운 브라우저 탭을 열고, base project 를 gitpod 로 접속합니다.
+=======
+>>>>>>> f6d68e9fcdee5700fcb7dc039e508d1aaf930da0
 
-https://gitpod.io/#https://github.com/msa-school/ddd-petstore-level5-layered
 
+<<<<<<< HEAD
 GidPod 내에 터미널을 열고(왼쪽 상단의 햄버거 버튼 > Terminal > New Terminal), 프로젝트가 잘 컴파일 되는지 확인합니다:
 ```
 mvn spring-boot:run
 ```
 
 ## 2. Backend
+=======
+## Entity
+>>>>>>> f6d68e9fcdee5700fcb7dc039e508d1aaf930da0
 - JPA를 통한 Database Input/Output Adapter 자동생성
 - Spring Data REST 를 통한 REST API Input/Output Adaptor 자동생성 (코드 비교 하면서 추가)
 - 등록된 강아지를 httpie 로 확인한다:
@@ -19,7 +25,11 @@ http :8080/pets
 ```
 > httpie 가 설치되지 않은 경우: pip install httpie
 
+<<<<<<< HEAD
 ## 3. event pub/sub
+=======
+## API
+>>>>>>> f6d68e9fcdee5700fcb7dc039e508d1aaf930da0
 - maria db 를 이용하여 연결:
 - maria db server 를 기동하기 (docker)
 ```
