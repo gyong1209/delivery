@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: delivery
-  namespace: delivery
+  name: delivery-svc
+  namespace: ecomarket
   labels:
     app: delivery
 spec:
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 8083
   selector:
     app: delivery
+  # type: LoadBalancer
   type: NodePort
 

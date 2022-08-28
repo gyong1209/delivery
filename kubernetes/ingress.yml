@@ -1,0 +1,69 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "ecomarket-ingress"
+  namespace: ecomarket
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /deliveries
+            pathType: Prefix
+            backend:
+              service:
+                name: "delivery-svc"
+                port:
+                  number: 80
+          - path: /deliveryAddresses
+            pathType: Prefix
+            backend:
+              service:
+                name: "delivery-svc"
+                port:
+                  number: 80
+          - path: /payments
+            pathType: Prefix
+            backend:
+              service:
+                name: "kafka-test-svc"
+                port:
+                  number: 80
+          # - path: /ecoProducts
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: "ecoproduct-svc"
+          #       port:
+          #         number: 80
+          # - path: /disposals
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: "disposal-svc"
+          #       port:
+          #         number: 80
+          # - path: /members
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: "member-svc"
+          #       port:
+          #         number: 80
+          # - path: /reviews
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: "review-svc"
+          #       port:
+          #         number: 80
+          # - path: /mypages
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: "mypage-svc"
+          #       port:
+          #         number: 80
