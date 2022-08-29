@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
         - name: delivery
-          image: 104844728320.dkr.ecr.ap-northeast-2.amazonaws.com/delivery:latest
+          image: AWS_ECR_URI
+          # 104844728320.dkr.ecr.ap-northeast-2.amazonaws.com/delivery:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8083

@@ -9,7 +9,7 @@ phases:
       - chmod +x ./kubectl
       - mv ./kubectl /usr/local/bin/kubectl
       - mkdir ~/.kube
-      # - aws eks --region ap-northeast-2 update-kubeconfig --name eks
+      - aws eks --region ap-northeast-2 update-kubeconfig --name ecomarket-eks-cluster
       - aws eks update-kubeconfig --name ecomarket-eks-cluster
       # - kubectl get po -n kube-system
   pre_build:
@@ -29,7 +29,7 @@ phases:
       - AWS_ECR_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - DATE='date'
       - echo Build completed on $DATE
-      # - sed -i.bak 's#AWS_ECR_URI#'"$AWS_ECR_URI"'#' ./deployment.yml
+      - sed -i.bak 's#AWS_ECR_URI#'"$AWS_ECR_URI"'#' ./deployment.yml
       # - sed -i.bak 's#DATE_STRING#'"$DATE"'#' ./deployment.yml
       - kubectl apply -f ./kubernetes/deployment.yml
       - kubectl apply -f ./kubernetes/service.yml
