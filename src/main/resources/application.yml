@@ -11,9 +11,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   datasource:
-    url: jdbc:mysql://ecomarket-delivery-db.cgcyiu667p2z.ap-northeast-2.rds.amazonaws.com:3306/delivery?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: admin
-    password: dlRbghd3#
+
     driverClassName: com.mysql.cj.jdbc.Driver
 
 server:
