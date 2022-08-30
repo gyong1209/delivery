@@ -32,38 +32,59 @@ spec:
                 name: "kafka-test-svc"
                 port:
                   number: 80
-          # - path: /ecoProducts
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: "ecoproduct-svc"
-          #       port:
-          #         number: 80
-          # - path: /disposals
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: "disposal-svc"
-          #       port:
-          #         number: 80
-          # - path: /members
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: "member-svc"
-          #       port:
-          #         number: 80
-          # - path: /reviews
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: "review-svc"
-          #       port:
-          #         number: 80
-          # - path: /mypages
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: "mypage-svc"
-          #       port:
-          #         number: 80
+          - path: /ecoProducts
+            pathType: Prefix
+            backend:
+              service:
+                name: "ecoproduct-svc"
+                port:
+                  number: 80
+          - path: /baskets
+            pathType: Prefix
+            backend:
+              service:
+                name: "basket-svc"
+                port:
+                  number: 80
+          - path: /ecoOrders
+            pathType: Prefix
+            backend:
+              service:
+                name: "ecoOrder-svc"
+                port:
+                  number: 80
+          - path: /ecoPointStandards
+            pathType: Prefix
+            backend:
+              service:
+                name: "ecoPointStandard-svc"
+                port:
+                  number: 80
+          - path: /disposals
+            pathType: Prefix
+            backend:
+              service:
+                name: "disposal-svc"
+                port:
+                  number: 80
+          - path: /members
+            pathType: Prefix
+            backend:
+              service:
+                name: "member-svc"
+                port:
+                  number: 80
+          - path: /reviews
+            pathType: Prefix
+            backend:
+              service:
+                name: "review-svc"
+                port:
+                  number: 80
+          - path: /mypages
+            pathType: Prefix
+            backend:
+              service:
+                name: "mypage-svc"
+                port:
+                  number: 80
