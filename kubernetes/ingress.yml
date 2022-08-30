@@ -88,3 +88,10 @@ spec:
                 name: "mypage-svc"
                 port:
                   number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: "ecomarket-frontend-svc"
+                port:
+                  number: 3000
