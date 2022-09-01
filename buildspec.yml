@@ -19,8 +19,7 @@ phases:
   build:
     commands:
       # - mvn clean
-      # - mvn clean package
-      - mvn install
+      - mvn clean package
       - echo Building the Docker image
       - docker build -t $IMAGE_REPO_NAME:latest .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
@@ -36,3 +35,7 @@ phases:
       - kubectl set image deployment.app/delivery delivery=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG -n ecomarket
       # - kubectl apply -f ./kubernetes/deployment.yml
       # - kubectl apply -f ./kubernetes/service.yml
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
