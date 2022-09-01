@@ -19,7 +19,8 @@ phases:
   build:
     commands:
       # - mvn clean
-      - mvn package
+      # - mvn clean package
+      - mvn install
       - echo Building the Docker image
       - docker build -t $IMAGE_REPO_NAME:latest .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
@@ -32,6 +33,6 @@ phases:
       - echo Build completed on $DATE
       - sed -i.bak 's#AWS_ECR_URI#'"$AWS_ECR_URI"'#' ./kubernetes/deployment.yml
       # - sed -i.bak 's#DATE_STRING#'"$DATE"'#' ./deployment.yml
-      - kubectl set image deployment/delivery -n ecomarket delivery=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - kubectl set image deployment/delivery delivery=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG -n ecomarket
       # - kubectl apply -f ./kubernetes/deployment.yml
       # - kubectl apply -f ./kubernetes/service.yml
