@@ -25,13 +25,13 @@ spec:
                 name: "delivery-svc"
                 port:
                   number: 80
-          - path: /payments
-            pathType: Prefix
-            backend:
-              service:
-                name: "kafka-test-svc"
-                port:
-                  number: 80
+          # - path: /payments
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: "kafka-test-svc"
+          #       port:
+          #         number: 80
           - path: /ecoProducts
             pathType: Prefix
             backend:
@@ -50,14 +50,14 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: "ecoOrder-svc"
+                name: "ecoorder-svc"
                 port:
                   number: 80
           - path: /ecoPointStandards
             pathType: Prefix
             backend:
               service:
-                name: "ecoPointStandard-svc"
+                name: "ecopointstandard-svc"
                 port:
                   number: 80
           - path: /disposals
