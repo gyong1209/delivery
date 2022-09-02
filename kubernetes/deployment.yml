@@ -22,3 +22,19 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8083
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: delivery-info
+                  key: dbhost
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: delivery-db-pass
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: delivery-db-pass
+                  key: password

@@ -35,6 +35,7 @@ phases:
     commands:
       - AWS_ECR_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMA_TAG
       - DATE='date'
+      - echo AWS_ECR_URI $AWS_ECR_URI
       - echo Build completed on $DATE
       - sed -i.bak 's#AWS_ECR_URI#'"$AWS_ECR_URI"'#' ./kubernetes/deployment.yml
       # - sed -i.bak 's#DATE_STRING#'"$DATE"'#' ./deployment.yml
