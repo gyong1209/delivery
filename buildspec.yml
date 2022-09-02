@@ -27,7 +27,7 @@ phases:
       # - docker build -t $IMAGE_REPO_NAME:latest .
       # - docker tag $IMAGE_REPO_NAME:$IMA_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMA_TAG
       - docker build -t $REPOSITORY_URI:latest .
-      - docker tag $REPOSITORY_URI:$IMA_TAG $REPOSITORY_URI:$IMA_TAG
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMA_TAG
       # - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMA_TAG
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMA_TAG
