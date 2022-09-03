@@ -13,4 +13,6 @@ public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
 
   List<Delivery> findByMemberId(@Param("memberId") Long memberId);
 
+  List<Delivery> findByOrderId(@Param("orderId") Long orderId);
+
 }

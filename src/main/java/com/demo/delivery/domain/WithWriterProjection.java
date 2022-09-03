@@ -9,6 +9,6 @@ interface WithWriterProjection {
     String getDeliveryEndDt();
     String getTrackingNumber();
     String getMemberId();
-    // String getOrderItemId();
+    String getOrderId();
     DeliveryAddress getDeliveryAddress();
 }
