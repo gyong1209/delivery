@@ -12,6 +12,7 @@ import lombok.Setter;
 public class PaymentCompleted extends AbstractEvent {
 
     private Long id;
+    private Long deliveryId;
     private Long addressId;
     private Long memberId;
     private Long orderId;

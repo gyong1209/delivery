@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
 
 import lombok.Getter;
@@ -43,6 +44,7 @@ public class Delivery {
     @PostUpdate
     public void onPostUpdate() {
         if(this.deliveryStatus == DeliveryStatus.COMP) {
+
             DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
             deliveryCompleted.setDeliveryId(this.id);
             deliveryCompleted.setMemberId(this.memberId);
@@ -51,6 +53,13 @@ public class Delivery {
             deliveryCompleted.setDeliveryStartDt(this.deliveryStartDt);
             deliveryCompleted.setDeliveryEndDt(this.deliveryEndDt);
             deliveryCompleted.publishAfterCommit();
+            
+        } else if(this.deliveryStatus == DeliveryStatus.SHIPPING) {
+
+            DeliveryStarted deliveryStarted = new DeliveryStarted();
+            deliveryStarted.setDeliveryId(this.id);
+            deliveryStarted.setOrderId(this.orderId);
+            deliveryStarted.publishAfterCommit();
         }
     }
 
