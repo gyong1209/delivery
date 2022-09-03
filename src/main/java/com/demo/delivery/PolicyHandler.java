@@ -1,5 +1,7 @@
 package com.demo.delivery;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +42,17 @@ public class PolicyHandler {
 
         // 배송기사 생성
         Courier courier = new Courier("김XX", "A택배");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
         // 배송 생성
         Delivery delivery = new Delivery();
         delivery.setDeliveryAddress(deliveryAddress);
         delivery.setTrackingNumber(generateTrackingnumber());
         delivery.setCourier(courier);
+        delivery.setOrderId(paymentCompleted.getOrderId());
         delivery.setMemberId(paymentCompleted.getMemberId());
         delivery.setDeliveryStatus(DeliveryStatus.READY);
+        delivery.setDeliveryStartDt(LocalDate.now().format(formatter));
         deliveryRepository.save(delivery);
     }
 

@@ -12,5 +12,8 @@ public class PaymentCanceled extends AbstractEvent {
   private Long id;
   private Long orderId;
   private Long memberId;
+  private Long productId;
+  private int price;
+  private String paymentMethod;
 
 }

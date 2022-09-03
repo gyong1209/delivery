@@ -44,10 +44,12 @@ public class Delivery {
     public void onPostUpdate() {
         if(this.deliveryStatus == DeliveryStatus.COMP) {
             DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
-            deliveryCompleted.setId(this.id);
+            deliveryCompleted.setDeliveryId(this.id);
             deliveryCompleted.setMemberId(this.memberId);
-            deliveryCompleted.setOrderItemId(this.orderItemId);
+            deliveryCompleted.setOrderId(this.orderId);
             deliveryCompleted.setDeliveryStatus(this.deliveryStatus.toString());
+            deliveryCompleted.setDeliveryStartDt(this.deliveryStartDt);
+            deliveryCompleted.setDeliveryEndDt(this.deliveryEndDt);
             deliveryCompleted.publishAfterCommit();
         }
     }
