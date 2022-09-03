@@ -63,7 +63,6 @@ public class PolicyHandler {
             return;
 
         // 배송상태 확인 - '배송중' 또는 '배송완료' 상태일 경우, '배송진행됨' 이벤트 발행
-        //Delivery delivery = deliveryRepository.getOne(paymentCanceled.getOrderId());
         Delivery delivery = deliveryRepository.findByOrderId(paymentCanceled.getOrderId()).get(0);
         if(delivery.getDeliveryStatus().equals(DeliveryStatus.SHIPPING) || delivery.getDeliveryStatus().equals(DeliveryStatus.COMP)) {
             return;
