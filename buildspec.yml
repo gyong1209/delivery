@@ -39,9 +39,8 @@ phases:
       - sed -i.bak 's#AWS_ECR_URI#'"$AWS_ECR_URI"'#' ./kubernetes/deployment.yml
       # - sed -i.bak 's#DATE_STRING#'"$DATE"'#' ./deployment.yml
       - echo kubectl set image deployment.apps/delivery delivery=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMA_TAG
-      - kubectl set image deployment delivery delivery=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMA_TAG -n ecomarket
-      # - kubectl apply -f ./kubernetes/deployment.yml
-      # - kubectl apply -f ./kubernetes/service.yml
+      - kubectl apply -f ./kubernetes/deployment.yml
+      - kubectl apply -f ./kubernetes/service.yml
 
 cache:
   paths:
