@@ -13,6 +13,6 @@ public interface DeliveryAddressRepository extends JpaRepository<DeliveryAddress
 
   List<DeliveryAddress> findByMemberId(@Param("memberId") Long memberId);
 
-  List<DeliveryAddress> findByRootAddrYn(@Param("rootAddrYn") String rootAddrYn, @Param("memberId") Long memberId);
+  List<DeliveryAddress> findByRootAddrYnAndMemberId(@Param("rootAddrYn") String rootAddrYn, @Param("memberId") Long memberId);
 
 }
