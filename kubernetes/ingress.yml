@@ -49,16 +49,24 @@ spec:
                 name: "ecoorder-svc"
                 port:
                   number: 80
-          # Eco-Standard
-          - path: /ecoPointStandards
+                    # Eco-Standard
+          - path: /ecoPointStandard
             pathType: Prefix
             backend:
               service:
-                name: "ecopointstandard-svc"
+                name: "ecopoint-svc"
                 port:
                   number: 80
           # Eco-Point
           - path: /ecoPoint
+            pathType: Prefix
+            backend:
+              service:
+                name: "ecopoint-svc"
+                port:
+                  number: 80
+          # Disposal
+          - path: /disposal
             pathType: Prefix
             backend:
               service:

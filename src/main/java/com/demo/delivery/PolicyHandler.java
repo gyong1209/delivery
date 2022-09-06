@@ -17,6 +17,7 @@ import com.demo.delivery.domain.DeliveryAddress;
 import com.demo.delivery.domain.DeliveryAddressRepository;
 import com.demo.delivery.domain.DeliveryRepository;
 import com.demo.delivery.domain.DeliveryStatus;
+import com.demo.delivery.domain.EcoOrderItem;
 import com.demo.delivery.domain.PaymentCanceled;
 import com.demo.delivery.domain.PaymentCompleted;
 
@@ -49,11 +50,16 @@ public class PolicyHandler {
         delivery.setDeliveryAddress(deliveryAddress);
         delivery.setTrackingNumber(generateTrackingnumber());
         delivery.setCourier(courier);
-        delivery.setOrderId(paymentCompleted.getOrderId());
+        delivery.setOrderId(paymentCompleted.getEcoOrderId());
         delivery.setMemberId(paymentCompleted.getMemberId());
         delivery.setDeliveryStatus(DeliveryStatus.READY);
         delivery.setDeliveryStartDt(LocalDate.now().format(formatter));
+        delivery.setEcoProductName(paymentCompleted.getOrderItem().get(0).getEcoProductName());
         deliveryRepository.save(delivery);
+
+        // for(EcoOrderItem eio : paymentCompleted.getOrderItem()) {
+
+        // }
     }
 
     @Transactional
@@ -63,7 +69,7 @@ public class PolicyHandler {
             return;
 
         // 배송상태 확인 - '배송중' 또는 '배송완료' 상태일 경우, '배송진행됨' 이벤트 발행
-        Delivery delivery = deliveryRepository.findByOrderId(paymentCanceled.getOrderId()).get(0);
+        Delivery delivery = deliveryRepository.findByOrderId(paymentCanceled.getEcoOrderId()).get(0);
         if(delivery.getDeliveryStatus().equals(DeliveryStatus.SHIPPING) || delivery.getDeliveryStatus().equals(DeliveryStatus.COMP)) {
             return;
         }

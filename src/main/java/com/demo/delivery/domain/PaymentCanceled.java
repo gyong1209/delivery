@@ -1,5 +1,8 @@
 package com.demo.delivery.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.demo.delivery.AbstractEvent;
 
 import lombok.Getter;
@@ -10,10 +13,10 @@ import lombok.Setter;
 public class PaymentCanceled extends AbstractEvent {
 
   private Long id;
-  private Long orderId;
   private Long memberId;
-  private Long productId;
-  private int price;
+  private Long ecoOrderId;
+  private int totalPrice;
   private String paymentMethod;
+  private List<EcoOrderItem> orderItem = new ArrayList<>();
 
 }

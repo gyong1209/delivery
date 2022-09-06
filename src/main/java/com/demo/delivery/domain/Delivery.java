@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
 
 import lombok.Getter;
@@ -32,6 +31,7 @@ public class Delivery {
     private String trackingNumber;              // 운송장번호
     private Long orderId;                       // 주문ID
     private Long orderItemId;                   // 주문상품ID
+    private String ecoProductName;              // 주문상품명(대표)
 
     @Embedded
     private Courier courier;                    // 택배기사
@@ -53,7 +53,7 @@ public class Delivery {
             deliveryCompleted.setDeliveryStartDt(this.deliveryStartDt);
             deliveryCompleted.setDeliveryEndDt(this.deliveryEndDt);
             deliveryCompleted.publishAfterCommit();
-            
+
         } else if(this.deliveryStatus == DeliveryStatus.SHIPPING) {
 
             DeliveryStarted deliveryStarted = new DeliveryStarted();
