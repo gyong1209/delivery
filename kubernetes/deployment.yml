@@ -41,7 +41,11 @@ spec:
             httpGet:
               path: '/actuator/health'
               port: 8083
-            initialDelaySeconds: 5
+            initialDelaySeconds: 120
             timeoutSeconds: 2
             periodSeconds: 5
-            failureThreshold: 3
+            failureThreshold: 5
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh","-c","sleep 2"]
