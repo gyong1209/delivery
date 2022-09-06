@@ -17,7 +17,6 @@ import com.demo.delivery.domain.DeliveryAddress;
 import com.demo.delivery.domain.DeliveryAddressRepository;
 import com.demo.delivery.domain.DeliveryRepository;
 import com.demo.delivery.domain.DeliveryStatus;
-import com.demo.delivery.domain.EcoOrderItem;
 import com.demo.delivery.domain.PaymentCanceled;
 import com.demo.delivery.domain.PaymentCompleted;
 
@@ -57,9 +56,6 @@ public class PolicyHandler {
         delivery.setEcoProductName(paymentCompleted.getOrderItem().get(0).getEcoProductName());
         deliveryRepository.save(delivery);
 
-        // for(EcoOrderItem eio : paymentCompleted.getOrderItem()) {
-
-        // }
     }
 
     @Transactional

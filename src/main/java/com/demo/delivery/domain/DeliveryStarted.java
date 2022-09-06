@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 public class DeliveryStarted extends AbstractEvent {
 
-  private Long id;
   private Long deliveryId;
   private Long orderId;
 }
