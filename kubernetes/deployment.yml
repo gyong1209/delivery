@@ -21,6 +21,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8083
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "250m"
           env:
             - name: DB_HOST
               valueFrom:
