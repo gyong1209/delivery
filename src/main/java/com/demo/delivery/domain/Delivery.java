@@ -58,7 +58,7 @@ public class Delivery {
 
             DeliveryStarted deliveryStarted = new DeliveryStarted();
             deliveryStarted.setDeliveryId(this.id);
-            deliveryStarted.setOrderId(this.orderId);
+            deliveryStarted.setEcoOrderId(this.orderId);
             deliveryStarted.publishAfterCommit();
         }
     }
