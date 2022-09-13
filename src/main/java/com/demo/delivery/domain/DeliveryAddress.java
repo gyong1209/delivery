@@ -26,5 +26,5 @@ public class DeliveryAddress {
     private String zipcode;         // 우편번호
     private String rootAddrYn;      // 기본배송지여부
 
-
+    
 }

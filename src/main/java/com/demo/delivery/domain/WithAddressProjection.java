@@ -12,4 +12,5 @@ interface WithAddressProjection {
   String getZipcode();
   String getRootAddrYn();
   String getMemberId();
+  String getId();
 }
