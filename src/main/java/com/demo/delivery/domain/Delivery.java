@@ -48,7 +48,7 @@ public class Delivery {
             DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
             deliveryCompleted.setDeliveryId(this.id);
             deliveryCompleted.setMemberId(this.memberId);
-            deliveryCompleted.setOrderId(this.orderId);
+            deliveryCompleted.setEcoOrderId(this.orderId);
             deliveryCompleted.setDeliveryStatus(this.deliveryStatus.toString());
             deliveryCompleted.setDeliveryStartDt(this.deliveryStartDt);
             deliveryCompleted.setDeliveryEndDt(this.deliveryEndDt);

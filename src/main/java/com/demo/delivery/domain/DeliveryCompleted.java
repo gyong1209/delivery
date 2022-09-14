@@ -11,7 +11,7 @@ public class DeliveryCompleted extends AbstractEvent {
 
     private Long memberId;
     private Long deliveryId;
-    private Long orderId;
+    private Long ecoOrderId;
     private String deliveryStatus;
     private String deliveryStartDt;
     private String deliveryEndDt;
