@@ -49,7 +49,7 @@ public class PolicyHandler {
         delivery.setDeliveryAddress(deliveryAddress);
         delivery.setTrackingNumber(generateTrackingnumber());
         delivery.setCourier(courier);
-        delivery.setOrderId(paymentCompleted.getEcoOrderId());
+        delivery.setEcoOrderId(paymentCompleted.getEcoOrderId());
         delivery.setMemberId(paymentCompleted.getMemberId());
         delivery.setDeliveryStatus(DeliveryStatus.READY);
         delivery.setDeliveryStartDt(LocalDate.now().format(formatter));
