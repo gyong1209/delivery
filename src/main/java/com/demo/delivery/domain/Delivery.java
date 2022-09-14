@@ -29,7 +29,7 @@ public class Delivery {
     private String deliveryStartDt;             // 배송시작일자
     private String deliveryEndDt;               // 배송종료일자
     private String trackingNumber;              // 운송장번호
-    private Long orderId;                       // 주문ID
+    private Long ecoOrderId;                    // 주문ID
     private Long orderItemId;                   // 주문상품ID
     private String ecoProductName;              // 주문상품명(대표)
 
@@ -48,7 +48,7 @@ public class Delivery {
             DeliveryCompleted deliveryCompleted = new DeliveryCompleted();
             deliveryCompleted.setDeliveryId(this.id);
             deliveryCompleted.setMemberId(this.memberId);
-            deliveryCompleted.setEcoOrderId(this.orderId);
+            deliveryCompleted.setEcoOrderId(this.ecoOrderId);
             deliveryCompleted.setDeliveryStatus(this.deliveryStatus.toString());
             deliveryCompleted.setDeliveryStartDt(this.deliveryStartDt);
             deliveryCompleted.setDeliveryEndDt(this.deliveryEndDt);
@@ -58,7 +58,7 @@ public class Delivery {
 
             DeliveryStarted deliveryStarted = new DeliveryStarted();
             deliveryStarted.setDeliveryId(this.id);
-            deliveryStarted.setEcoOrderId(this.orderId);
+            deliveryStarted.setEcoOrderId(this.ecoOrderId);
             deliveryStarted.publishAfterCommit();
         }
     }
